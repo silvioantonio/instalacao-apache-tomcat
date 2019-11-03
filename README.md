@@ -54,7 +54,7 @@ Agora que nosso usuario tomcat esta configurado, podemos baixar e instalar o tom
 
 A melhor maneira de instalar o Tomcat é fazendo o download da ultima versao binaria lançada e entao configura-la manualmente.
 
-Voçê pode encontrar a ultima versao em [https://tomcat.apache.org/download-90.cgi](https://tomcat.apache.org/download-90.cgi). Navegue na pagina ate encontrar a seccao de distribuiçao binaria, entao na lista copie o link que termina com a extensao "tar.gz".
+Voçê pode encontrar a ultima versao em [Tomcat](https://tomcat.apache.org/download-90.cgi). Navegue na pagina ate encontrar a seccao de distribuiçao binaria, entao na lista copie o link que termina com a extensao "tar.gz".
 
 Em seguida no terminal mude seu diretorio atual para /tmp, este é um bom diretorio para colocarmos itens temporarios, os quais nao precisaremos manter em nossa maquina apos extrairmos.
 
@@ -119,21 +119,13 @@ O Tomcat precisa saber onde Java esta instalado. Este caminho geralmente esta re
 sudo update-java-alternatives -l
 ```
 
-{% code-tabs %}
-{% code-tabs-item title="OUTPUT" %}
 ```text
 java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-{% code-tabs %}
-{% code-tabs-item title="JAVA\_HOME" %}
 ```text
 /usr/lib/jvm/java-1.8.0-openjdk-amd64
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Seguindo esta informação, podemos criar o arquivo de serviço. Abra o arquivo chamado tomcat.service no /etc/systemd/system digitando:
 
@@ -186,8 +178,6 @@ Inicie o serviço Tomcat digitando:
 sudo systemctl start tomcat
 ```
 
-{% code-tabs %}
-{% code-tabs-item title="OUTPUT" %}
 ```text
  tomcat.service - Apache Tomcat Web Application Container
    Loaded: loaded (/etc/systemd/system/tomcat.service; disabled; vendor preset: enabled)
@@ -210,8 +200,6 @@ nov 01 15:52:55 silvio systemd[1]: Started Apache Tomcat Web Application Contain
 
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 ## Ajuste o Firewall e Teste o servidor Tomcat
 
@@ -225,13 +213,9 @@ sudo ufw allow 8080
 
 Com o firewall modificado, voce pode acessar a pagina padrao seguindo seu dominio ou endereço ip com :8080 em um navegador:
 
-{% code-tabs %}
-{% code-tabs-item title="Abra no navegado" %}
 ```text
 http://server_domain_or_IP:8080
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
 Voce deve ver a pagina padrao do tomcat, o nosso proximo passo sera configurar a interface gerenciadora.
 
